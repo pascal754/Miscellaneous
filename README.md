@@ -29,7 +29,7 @@ distrib(gen);
 
 ```
 
-## Measure time in C++
+## Measure execution time in C++
 ```cpp
 import <iostream>;
 import <chrono>;
