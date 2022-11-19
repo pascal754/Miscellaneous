@@ -9,10 +9,10 @@
 ## vcpkg update
 `vcpkg update`
 
-## discard output
+## Discard output
 `Your DOS command 2> nul`
 
-## random number in C++
+## Random number in C++
 ```cpp
 
 import <random>;
@@ -27,4 +27,22 @@ std::uniform_int_distribution<> distrib(0, 2); // closed interval [0, 2]
 
 distrib(gen);
 
+```
+
+## Measure time in C++
+```cpp
+import <iostream>;
+import <chrono>;
+
+using namespace std::chrono;
+
+auto start = high_resolution_clock::now();
+
+/* do something */
+
+auto stop = high_resolution_clock::now();
+
+auto duration = duration_cast<microseconds>(stop - start);
+
+std::cout << "Time: " << duration.count() << " microseconds\n";
 ```
