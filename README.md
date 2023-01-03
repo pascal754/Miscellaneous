@@ -48,3 +48,7 @@ auto duration = duration_cast<microseconds>(stop - start);
 
 std::cout << "Time elapsed: " << duration.count() << " microseconds\n";
 ```
+
+## vector of vector
+
+`std::vector<std::vector<int>> v(10, std::vector<int>(10, 1));`
