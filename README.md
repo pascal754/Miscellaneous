@@ -56,3 +56,8 @@ std::cout << "Time elapsed: " << duration.count() << " microseconds\n";
 ## 3D vector
 
 `std::vector<std::vector<std::vector<int>>> v(3, std::vector<std::vector<int>>(4, std::vector<int>(5)));`
+
+
+## Improve I/O performance
+
+`std::ios_base::sync_with_stdio(false);`
