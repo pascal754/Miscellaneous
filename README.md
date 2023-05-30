@@ -31,8 +31,10 @@ distrib(gen);
 
 ## Measure execution time in C++
 ```cpp
-import <iostream>;
-import <chrono>;
+import std;
+//import <iostream>;
+//import <chrono>;
+//import <print>;
 
 /* ... */
 
@@ -46,7 +48,9 @@ auto stop = high_resolution_clock::now();
 
 auto duration = duration_cast<microseconds>(stop - start);
 
-std::cout << "Time elapsed: " << duration.count() << " microseconds\n";
+// std::cout << "Time elapsed: " << duration.count() << " microseconds\n";
+
+std::println("Time elapsed: {} microseconds", duration.count());
 ```
 
 ## vector of vector
