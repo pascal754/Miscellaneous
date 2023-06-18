@@ -65,3 +65,10 @@ std::println("Time elapsed: {} microseconds", duration.count());
 ## Improve I/O performance
 
 `std::ios_base::sync_with_stdio(false);`
+
+## Structured binding
+
+```
+for (auto [a, b] {std::pair{ 3, "foobar" }}; a; --a)
+    std::println("{} {}", a, b);
+```
