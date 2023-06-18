@@ -72,3 +72,14 @@ std::println("Time elapsed: {} microseconds", duration.count());
 for (auto [a, b] {std::pair{ 3, "foobar" }}; a; --a)
     std::println("{} {}", a, b);
 ```
+
+
+## Boost TypeInfo
+
+```
+#include <boost/type_index.hpp>
+...
+int a{};
+std::println("{}", type_id_with_cvr<decltype(a)>().pretty_name());
+...
+```
