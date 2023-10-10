@@ -68,7 +68,7 @@ std::println("Time elapsed: {} microseconds", duration.count());
 
 ## Structured binding
 
-```
+```cpp
 for (auto [a, b] {std::pair{ 3, "foobar" }}; a; --a)
     std::println("{} {}", a, b);
 ```
@@ -76,11 +76,31 @@ for (auto [a, b] {std::pair{ 3, "foobar" }}; a; --a)
 
 ## Boost TypeInfo
 
-```
+```cpp
 #include <boost/type_index.hpp>
-...
+// ...
 int a{};
 using boost::typeindex::type_id_with_cvr;
 std::println("{}", type_id_with_cvr<decltype(a)>().pretty_name());
-...
+// ...
+```
+
+## Type Aliases
+
+```cpp
+#include <cstdint>
+#include <stdfloat> // C++23
+
+using i8 = std::int8_t;
+using i16 = std::int16_t;
+using i32 = std::int32_t;
+using i64 = std::int64_t;
+
+using u8 = std::uint8_t;
+using u16 = std::uint16_t;
+using u32 = std::uint32_t;
+using u64 = std::uint64_t;
+
+using f32 = std::float32_t;
+using f64 = std::float64_t;
 ```
