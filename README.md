@@ -104,3 +104,21 @@ using u64 = std::uint64_t;
 using f32 = std::float32_t;
 using f64 = std::float64_t;
 ```
+
+## CMakeLists.txt
+
+```
+cmake_minimum_required(VERSION 3.26)
+
+set(CMAKE_TOOLCHAIN_FILE "C:/.../vcpkg/scripts/buildsystems/vcpkg.cmake")
+
+project(cmake_test)
+
+set(CMAKE_CXX_STANDARD 23)
+
+add_executable(${PROJECT_NAME} main.cpp)
+
+#set(CMAKE_PREFIX_PATH "C:/.../vcpkg/installed/x64-windows/share")
+find_package(fmt CONFIG REQUIRED)
+target_link_libraries(${PROJECT_NAME} PRIVATE fmt::fmt)
+```
