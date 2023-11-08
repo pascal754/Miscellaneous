@@ -122,3 +122,10 @@ add_executable(${PROJECT_NAME} main.cpp)
 find_package(fmt CONFIG REQUIRED)
 target_link_libraries(${PROJECT_NAME} PRIVATE fmt::fmt)
 ```
+
+## namespace
+
+```cpp
+namespace rng = std::ranges;
+namespace vw = std::views;
+```
