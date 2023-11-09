@@ -101,6 +101,9 @@ using u16 = std::uint16_t;
 using u32 = std::uint32_t;
 using u64 = std::uint64_t;
 
+using usize = std::size_t;
+using ssize = std::ptrdiff_t;
+
 using f32 = std::float32_t;
 using f64 = std::float64_t;
 ```
