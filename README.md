@@ -55,11 +55,17 @@ std::println("Time elapsed: {} microseconds", duration.count());
 
 ## vector of vector
 
-`std::vector<std::vector<int>> v(10, std::vector<int>(10, 1));`
+```cpp
+// 10 x 10 matrix with a default value, 1
+std::vector<std::vector<int>> v(10, std::vector<int>(10, 1));
+```
 
 ## 3D vector
 
-`std::vector<std::vector<std::vector<int>>> v(3, std::vector<std::vector<int>>(4, std::vector<int>(5)));`
+```cpp
+// 3 x 4 x 5 matrix with a default value, 0
+std::vector<std::vector<std::vector<int>>> v(3, std::vector<std::vector<int>>(4, std::vector<int>(5)));
+```
 
 
 ## Improve I/O performance
