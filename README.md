@@ -127,6 +127,7 @@ cmake -DCMAKE_BUILD_TYPE=Release -B Release
 cmake --build Release
 
 On Windows
+cmake -B <dir>
 cmake --build <dir> --config Release
 ```
 
