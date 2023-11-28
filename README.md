@@ -125,6 +125,9 @@ cmake --build Debug
 
 cmake -DCMAKE_BUILD_TYPE=Release -B Release
 cmake --build Release
+
+On Windows
+cmake --build <dir> --config Release
 ```
 
 ## CMakeLists.txt
