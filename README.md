@@ -117,9 +117,19 @@ using f128 = std::float128_t;
 using bf16 = std::bfloat16_t;
 ```
 
-## CMakeLists.txt
+## cmake
 
 ```
+cmake -DCMAKE_BUILD_TYPE=Debug -B Debug
+cmake --build Debug
+
+cmake -DCMAKE_BUILD_TYPE=Release -B Release
+cmake --build Release
+```
+
+## CMakeLists.txt
+
+```cmake
 cmake_minimum_required(VERSION 3.26)
 
 set(CMAKE_TOOLCHAIN_FILE "C:/.../vcpkg/scripts/buildsystems/vcpkg.cmake")
@@ -131,8 +141,34 @@ set(CMAKE_CXX_STANDARD 23)
 add_executable(${PROJECT_NAME} main.cpp)
 
 #set(CMAKE_PREFIX_PATH "C:/.../vcpkg/installed/x64-windows/share")
+#include(/.../vcpkg/scripts/buildsystems/vcpkg.cmake)
 find_package(fmt CONFIG REQUIRED)
 target_link_libraries(${PROJECT_NAME} PRIVATE fmt::fmt)
+```
+
+## CMakeLists.txt for modules
+
+```cmake
+cmake_minimum_required(VERSION 3.28)
+project(std_module_example CXX)
+
+# Turning off extensions avoids and issue with the clang 16 compiler
+# clang 17 and greater can avoid this setting
+set(CMAKE_CXX_EXTENSIONS OFF)
+# Set the version of C++ for the project
+set(CMAKE_CXX_STANDARD 20)
+# Create a library
+add_library(foo)
+# Add the module file to the library
+target_sources(foo
+  PUBLIC
+    FILE_SET CXX_MODULES FILES
+      foo.cxx
+)
+# Create an executable
+add_executable(hello main.cxx)
+# Link to the library foo
+target_link_libraries(hello foo)
 ```
 
 ## namespace
