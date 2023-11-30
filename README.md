@@ -181,3 +181,10 @@ target_link_libraries(hello foo)
 namespace rng = std::ranges;
 namespace vw = std::views;
 ```
+
+## Eigen
+
+deprecate warning STL4042 for MSVC
+```cpp
+#define _SILENCE_CXX23_DENORM_DEPRECATION_WARNING
+```
