@@ -184,7 +184,7 @@ namespace vw = std::views;
 
 ## Eigen
 
-deprecate warning STL4042 for MSVC
+deprecate warning STL4042 for MSVC with /std:c++latest
 ```cpp
 #define _SILENCE_CXX23_DENORM_DEPRECATION_WARNING
 ```
