@@ -7,7 +7,12 @@
 `pacman -Syuu`
 
 ## vcpkg update
-`vcpkg update`
+
+```
+git pull
+vcpkg update
+vcpkg update
+```
 
 ## Discard output
 `Your DOS command 2> nul`
