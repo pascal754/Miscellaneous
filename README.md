@@ -11,7 +11,7 @@
 ```
 git pull
 vcpkg update
-vcpkg update
+vcpkg upgrade
 ```
 
 ## Discard output
