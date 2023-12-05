@@ -12,6 +12,7 @@
 git pull
 vcpkg update
 vcpkg upgrade
+vcpkg upgrade --no-dry-run
 ```
 
 ## Discard output
