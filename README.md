@@ -195,3 +195,20 @@ deprecate warning STL4042 for MSVC with /std:c++latest
 ```cpp
 #define _SILENCE_CXX23_DENORM_DEPRECATION_WARNING
 ```
+
+## Address Sanitizer Error: Container overflow
+
+```
+error LNK2038: mismatch detected for 'annotate_string': value '0' doesn't match value '1' in main.obj
+error LNK2038: mismatch detected for 'annotate_vector': value '0' doesn't match value '1' in main.obj
+```
+
+### Workaround:
+
+Properties - C/C++ - Command Line - Additional Options
+
+`/D _DISABLE_VECTOR_ANNOTATION /D _DISABLE_STRING_ANNOTATION`
+
+### Reference:
+
+https://learn.microsoft.com/en-us/cpp/sanitizers/error-container-overflow?view=msvc-170
