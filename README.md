@@ -15,8 +15,10 @@ vcpkg upgrade
 vcpkg upgrade --no-dry-run
 ```
 
-## Discard output
-`Your DOS command 2> nul`
+## Discard stderr
+`Your_DOS_command 2> nul`
+
+[Redirecting error messages from Command Prompt: STDERR/STDOUT](https://learn.microsoft.com/en-us/troubleshoot/developer/visualstudio/cpp/language-compilers/redirecting-error-command-prompt)
 
 ## Random number in C++
 ```cpp
@@ -212,3 +214,10 @@ Properties - C/C++ - Command Line - Additional Options
 ### Reference:
 
 https://learn.microsoft.com/en-us/cpp/sanitizers/error-container-overflow?view=msvc-170
+
+## Google benchmark in MSVC
+
+```cpp
+#pragma comment(lib, "shlwapi.lib")
+```
+
