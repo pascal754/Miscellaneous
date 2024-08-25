@@ -221,3 +221,8 @@ https://learn.microsoft.com/en-us/cpp/sanitizers/error-container-overflow?view=m
 #pragma comment(lib, "shlwapi.lib")
 ```
 
+## How to find out which process is locking a DLL
+
+```
+tasklist /m thelocked.dll
+```
