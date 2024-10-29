@@ -226,3 +226,23 @@ https://learn.microsoft.com/en-us/cpp/sanitizers/error-container-overflow?view=m
 ```
 tasklist /m thelocked.dll
 ```
+
+## Bash script
+
+Find and delete:
+
+```bash
+find . -type d -name "target" -exec rm -rf {} +
+```
+
+Search `pattern` through all `.txt` files in the current directory:
+
+```bash
+grep "pattern" *.txt
+```
+
+Search recursively through all `.txt` files:
+
+```bash
+grep -r --include="*.txt" "pattern" .
+```
