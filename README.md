@@ -128,10 +128,10 @@ using bf16 = std::bfloat16_t;
 ## cmake
 
 ```
-cmake -GNinja -DCMAKE_BUILD_TYPE=Debug -B Debug
+cmake -GNinja -DCMAKE_CXX_COMPILER=/usr/local/bin/g++ -DCMAKE_BUILD_TYPE=Debug -B Debug
 cmake --build Debug
 
-cmake -GNinja -DCMAKE_BUILD_TYPE=Release -B Release
+cmake -GNinja -DCMAKE_CXX_COMPILER=/usr/local/bin/g++ -DCMAKE_BUILD_TYPE=Release -B Release
 cmake --build Release
 
 On Windows
