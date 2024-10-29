@@ -229,36 +229,39 @@ tasklist /m thelocked.dll
 
 ## Bash script
 
-Find and delete:
+- Find and delete:
 
 ```bash
 find . -type d -name "target" -exec rm -rf {} +
 ```
 
-Search `pattern` through all `.txt` files in the current directory:
+- Search `pattern` through all `.txt` files in the current directory:
 
 ```bash
 grep "pattern" *.txt
 ```
 
-Search recursively through all `.txt` files:
+- Search recursively through all `.txt` files:
 
 ```bash
 grep -r --include="*.txt" "pattern" .
 ```
 
-Check the size of the current directory:
+- Check the size of the current directory:
 
 ```bash
 du -sh .
 ```
+where
 
-- `-s`: Summarizes the total size of the directory rather than listing each file and subdirectory.
-- `-h`: Displays the size in a human-readable format (e.g., KB, MB, GB).
-- `.`: Refers to the current directory.
+`-s`: Summarizes the total size of the directory rather than listing each file and subdirectory.
+
+`-h`: Displays the size in a human-readable format (e.g., KB, MB, GB).
+
+`.`: Refers to the current directory.
 
 
-Check the size of each directory within the current directory:
+- Check the size of each directory within the current directory:
 
 ```bash
 du -h --max-depth=1
