@@ -137,6 +137,9 @@ cmake --build Release
 On Windows
 cmake -B <dir>
 cmake --build <dir> --config Release
+
+vcpkg
+CMake projects should use: "-DCMAKE_TOOLCHAIN_FILE=/path/to/vcpkg/scripts/buildsystems/vcpkg.cmake"
 ```
 
 ## CMakeLists.txt
