@@ -147,7 +147,7 @@ CMake projects should use: "-DCMAKE_TOOLCHAIN_FILE=/path/to/vcpkg/scripts/builds
 ```cmake
 cmake_minimum_required(VERSION 3.26)
 
-set(CMAKE_TOOLCHAIN_FILE "C:/.../vcpkg/scripts/buildsystems/vcpkg.cmake")
+set(CMAKE_TOOLCHAIN_FILE "$ENV{HOME}/vcpkg/scripts/buildsystems/vcpkg.cmake")
 
 project(cmake_test)
 
