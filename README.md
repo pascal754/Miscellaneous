@@ -186,6 +186,62 @@ add_executable(hello main.cxx)
 target_link_libraries(hello foo)
 ```
 
+## CMakeLists.txt for modules example 2.
+### CMakeLists.txt
+```cmake
+cmake_minimum_required(VERSION 3.30)
+
+set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
+
+project(hello CXX)
+
+# Turning off extensions avoids and issue with the clang 16 compiler
+# clang 17 and greater can avoid this setting
+set(CMAKE_CXX_EXTENSIONS OFF)
+# Set the version of C++ for the project
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED 20)
+
+find_package(glm CONFIG REQUIRED)
+
+add_executable(hello)
+target_sources(hello
+  PUBLIC
+    main.cc
+  PUBLIC FILE_SET CXX_MODULES FILES
+    glm.cppm
+)
+# Link to the library
+target_link_libraries(hello PRIVATE glm::glm)
+```
+### main.cc
+```cpp
+import glm;
+
+int main()
+{
+  glm::vec4 Color{1.0f, 0.5f, 0.0f, 1.0f};
+}
+```
+
+### configure
+```bash
+cmake -GNinja -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_BUILD_TYPE=Debug -B Debug
+```
+
+### build
+```bash
+cmake --build Debug
+```
+
+### tree
+```
+.
+├── CMakeLists.txt
+├── glm.cppm
+└── main.cc
+```
+
 ## namespace
 
 ```cpp
