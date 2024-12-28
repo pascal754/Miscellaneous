@@ -169,7 +169,7 @@ project(std_module_example CXX)
 
 # Turning off extensions avoids and issue with the clang 16 compiler
 # clang 17 and greater can avoid this setting
-set(CMAKE_CXX_EXTENSIONS OFF)
+# set(CMAKE_CXX_EXTENSIONS OFF)
 # Set the version of C++ for the project
 set(CMAKE_CXX_STANDARD 20)
 # Create a library
@@ -197,7 +197,7 @@ project(hello CXX)
 
 # Turning off extensions avoids and issue with the clang 16 compiler
 # clang 17 and greater can avoid this setting
-set(CMAKE_CXX_EXTENSIONS OFF)
+# set(CMAKE_CXX_EXTENSIONS OFF)
 # Set the version of C++ for the project
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED 20)
