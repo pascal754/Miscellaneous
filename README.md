@@ -272,7 +272,7 @@ project(hello LANGUAGES CXX)
 # set(CMAKE_CXX_EXTENSIONS OFF)
 # Set the version of C++ for the project
 set(CMAKE_CXX_STANDARD 23)
-set(CMAKE_CXX_STANDARD_REQUIRED 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(glm CONFIG REQUIRED)
 
