@@ -142,7 +142,7 @@ vcpkg
 CMake projects should use: "-DCMAKE_TOOLCHAIN_FILE=/path/to/vcpkg/scripts/buildsystems/vcpkg.cmake"
 ```
 
-## CMakeLists.txt
+## CMakeLists.txt for vcpkg
 
 ```cmake
 cmake_minimum_required(VERSION 3.26)
@@ -161,7 +161,7 @@ find_package(fmt CONFIG REQUIRED)
 target_link_libraries(${PROJECT_NAME} PRIVATE fmt::fmt)
 ```
 
-## CMakeLists.txt for modules
+## CMakeLists.txt for modules example 1
 
 ```cmake
 cmake_minimum_required(VERSION 3.28)
@@ -186,7 +186,7 @@ add_executable(hello main.cxx)
 target_link_libraries(hello foo)
 ```
 
-## CMakeLists.txt for modules example 2.
+## CMakeLists.txt for modules example 2
 ### CMakeLists.txt
 ```cmake
 cmake_minimum_required(VERSION 3.30)
@@ -240,6 +240,55 @@ cmake --build Debug
 ├── CMakeLists.txt
 ├── glm.cppm
 └── main.cc
+```
+
+## CMakeLists.txt for modules example 3: `imiport std`
+
+- clang++ v19.1.5
+- `export LD_LIBRARY_PATH=/path/to/LLVM/lib/x86_64-unknown-linux-gnu`
+- `cmake -GNinja -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_CXX_FLAGS="-stdlib=libc++" -DCMAKE_BUILD_TYPE=Debug -B Debug`
+- `cmake --build Debug`
+
+### CMakeLists.txt
+
+```cmake
+cmake_minimum_required(VERSION 3.30)
+
+# Set experimental flag to enable `import std` support from CMake.
+# This must be enabled before C++ language support.
+set(CMAKE_EXPERIMENTAL_CXX_IMPORT_STD
+ # This specific value changes as experimental support evolves. See
+ # `Help/dev/experimental.rst` in the CMake source corresponding to
+ # your CMake build for the exact value to use.
+ # v3.30.5 has the same value.
+ "0e5b6991-d74f-4b3d-a41c-cf096e0b2508")
+
+set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
+
+project(hello LANGUAGES CXX)
+
+# Turning off extensions avoids and issue with the clang 16 compiler
+# clang 17 and greater can avoid this setting
+# set(CMAKE_CXX_EXTENSIONS OFF)
+# Set the version of C++ for the project
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED 23)
+
+find_package(glm CONFIG REQUIRED)
+
+# Tell CMake that we explicitly want `import std`. This will initialize the
+# property on all targets declared after this to 1
+set(CMAKE_CXX_MODULE_STD 1)
+
+add_executable(hello)
+target_sources(hello
+ PUBLIC
+  main.cc
+ PUBLIC FILE_SET CXX_MODULES FILES
+  glm.cppm
+)
+# Link to the library
+target_link_libraries(hello PRIVATE glm::glm)
 ```
 
 ## namespace
