@@ -242,7 +242,7 @@ cmake --build Debug
 └── main.cc
 ```
 
-## CMakeLists.txt for modules example 3: `imiport std`
+## CMakeLists.txt for modules example 3: `imiport std;`
 
 - clang++ v19.1.5
 - `export LD_LIBRARY_PATH=/path/to/LLVM/lib/x86_64-unknown-linux-gnu`
@@ -289,6 +289,55 @@ target_sources(hello
 )
 # Link to the library
 target_link_libraries(hello PRIVATE glm::glm)
+```
+
+## CMakeLists.txt for modules example 4: `imiport std;` and `import fmt;`
+
+- clang v19.1.5
+- `cmake -GNinja -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_CXX_FLAGS="-stdlib=libc++" -DFMT_MODULE=ON -DCMAKE_BUILD_TYPE=Debug -B Debug`
+- `cmake --build Debug`
+
+### CMakeLists.txt
+
+```cmake
+cmake_minimum_required(VERSION 3.30)
+
+set(CMAKE_EXPERIMENTAL_CXX_IMPORT_STD "0e5b6991-d74f-4b3d-a41c-cf096e0b2508")
+set(CMAKE_CXX_MODULE_STD 1)
+
+project(hello CXX)
+
+# Set the version of C++ for the project
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_subdirectory(fmt)
+add_executable(hello main.cc)
+# Link to the library
+target_link_libraries(hello PRIVATE fmt)
+```
+
+### main.cc
+
+```cpp
+import fmt;
+import std;
+
+int main()
+{
+ std::vector<int> vi{1, 2, 3};
+ fmt::println("{}", vi);
+}
+```
+
+### tree
+
+```
+.
+├── CMakeLists.txt
+├── fmt
+└── main.cc
+
 ```
 
 ## namespace
