@@ -340,6 +340,55 @@ int main()
 
 ```
 
+## CMakeLists.txt for modules example 5: `imiport std;`, `import fmt;`, and vcpkg
+
+- clang v19.1.5
+- `cmake -GNinja -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_CXX_FLAGS="-stdlib=libc++" -DCMAKE_BUILD_TYPE=Debug -B Debug`
+- `cmake --build Debug`
+
+### CMakeLists.txt
+
+```cmake
+cmake_minimum_required(VERSION 3.30)
+
+set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
+
+set(CMAKE_EXPERIMENTAL_CXX_IMPORT_STD "0e5b6991-d74f-4b3d-a41c-cf096e0b2508")
+set(CMAKE_CXX_MODULE_STD 1)
+
+project(hello CXX)
+
+# Set the version of C++ for the project
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+
+find_package(fmt CONFIG REQUIRED)
+
+add_compile_definitions(FMT_MODULE=ON)
+
+add_executable(hello)
+target_sources(hello
+ PUBLIC
+  main.cc
+ PUBLIC FILE_SET CXX_MODULES FILES
+  fmt.cc
+)
+# Link to the library
+target_link_libraries(hello PRIVATE fmt::fmt)
+```
+### tree
+
+```
+.
+├── CMakeLists.txt
+├── fmt.cc
+├── format.cc
+├── main.cc
+└── os.cc
+
+```
+
 ## namespace
 
 ```cpp
