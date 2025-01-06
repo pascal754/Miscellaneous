@@ -389,6 +389,13 @@ target_link_libraries(hello PRIVATE fmt::fmt)
 
 ```
 
+## `import std;` using GCC
+
+```
+g++ -c -std=c++23 -fmodules -fsearch-include-path bits/std.cc
+g++ -std=c++23 -fmodules main.cpp
+```
+
 ## namespace
 
 ```cpp
