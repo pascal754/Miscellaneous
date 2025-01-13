@@ -479,3 +479,12 @@ where
 ```bash
 du -h --max-depth=1
 ```
+
+## Build GCC
+
+```
+mkdir objdir
+cd objdir
+../configure --prefix $HOME/.local/GCC --disable-multilib --enable-languages=c,c++
+make -j 12
+```
