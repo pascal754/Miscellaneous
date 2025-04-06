@@ -488,3 +488,21 @@ cd objdir
 ../configure --prefix $HOME/.local/GCC --disable-multilib --enable-languages=c,c++
 make -j 12
 ```
+
+## PowerShell
+
+```powershell
+New-Item test.txt -ItemType File
+```
+
+```powershell
+Get-ChildItem -Path *.cpp -Recurse | Select-String -Pattern 'main' -CaseSensitive
+```
+
+```powershell
+Get-ChildItem -Path * -Directory | Remove-Item -WhatIf
+```
+
+```powershell
+Get-ChildItem -Path "*" -Include debug -Directory -Recurse | Remove-Item -Recurse -WhatIf
+```
