@@ -506,3 +506,7 @@ Get-ChildItem -Path * -Directory | Remove-Item -WhatIf
 ```powershell
 Get-ChildItem -Path "*" -Include debug -Directory -Recurse | Remove-Item -Recurse -WhatIf
 ```
+
+```powershell
+Test-NetConnection -ComputerName www.google.com
+```
