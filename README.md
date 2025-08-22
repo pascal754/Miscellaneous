@@ -125,7 +125,7 @@ using f128 = std::float128_t;
 using bf16 = std::bfloat16_t;
 ```
 
-## cmake
+## CMake
 
 ```
 cmake -GNinja -DCMAKE_CXX_COMPILER=/usr/local/bin/g++ -DCMAKE_BUILD_TYPE=Debug -B Debug
@@ -248,6 +248,9 @@ cmake --build Debug
 - `export LD_LIBRARY_PATH=/path/to/LLVM/lib/x86_64-unknown-linux-gnu`
 - `cmake -GNinja -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_CXX_FLAGS="-stdlib=libc++" -DCMAKE_BUILD_TYPE=Debug -B Debug`
 - `cmake --build Debug`
+- The UUID may change in future versions of CMake:
+  - `CMAKE_EXPERIMENTAL_CXX_IMPORT_STD` is `d0edc3af-4c50-42ea-a356-e2862fe7a444` in v4.1.0
+  - [CMake Experimental Features Guide](https://github.com/Kitware/CMake/blob/master/Help/dev/experimental.rst)
 
 ### CMakeLists.txt
 
