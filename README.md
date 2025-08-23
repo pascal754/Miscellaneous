@@ -187,6 +187,10 @@ target_link_libraries(hello foo)
 ```
 
 ## CMakeLists.txt for modules example 2
+
+- `import glm;` using vcpkg
+- glm v1.0.1
+  
 ### CMakeLists.txt
 ```cmake
 cmake_minimum_required(VERSION 3.30)
@@ -242,9 +246,9 @@ cmake --build Debug
 └── main.cc
 ```
 
-## CMakeLists.txt for modules example 3: `import std;` and `import glm;`
-
-- Experimental
+## CMakeLists.txt for modules example 3
+ - `import std;` is experimental
+ - `import glm;` using vcpkg
 - clang++ v20.1.8
 - cmake v4.1.0
 - `export LD_LIBRARY_PATH=/path/to/LLVM/lib/x86_64-unknown-linux-gnu`
@@ -299,8 +303,8 @@ target_sources(hello
 target_link_libraries(hello PRIVATE glm::glm)
 ```
 
-## CMakeLists.txt for modules example 4: `import std;` and `import fmt;`
-
+## CMakeLists.txt for modules example 4:
+- `import fmt;`
 - clang v20.1.8
 - cmake v4.1.0
 - fmt v11.2.0
@@ -348,7 +352,6 @@ int main()
 ├── CMakeLists.txt
 ├── fmt
 └── main.cc
-
 ```
 
 ## `import std;` using GCC v15
