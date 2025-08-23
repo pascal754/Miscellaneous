@@ -303,6 +303,7 @@ target_link_libraries(hello PRIVATE glm::glm)
 
 - clang v20.1.8
 - cmake v4.1.0
+- fmt v11.2.0
 - `export LD_LIBRARY_PATH=/path/to/LLVM/lib/x86_64-unknown-linux-gnu`
 - `cmake -GNinja -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_CXX_FLAGS="-stdlib=libc++" -DFMT_MODULE=ON -DCMAKE_BUILD_TYPE=Debug -B Debug`
 - `cmake --build Debug`
@@ -352,18 +353,21 @@ int main()
 
 ## CMakeLists.txt for modules example 5: `imiport std;`, `import fmt;`, and vcpkg
 
-- clang v19.1.5
+- clang v20.1.8
+- cmake v4.1.0
+- fmt v11.2.0
+- `export LD_LIBRARY_PATH=/path/to/LLVM/lib/x86_64-unknown-linux-gnu`
 - `cmake -GNinja -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_CXX_FLAGS="-stdlib=libc++" -DCMAKE_BUILD_TYPE=Debug -B Debug`
 - `cmake --build Debug`
 
 ### CMakeLists.txt
 
 ```cmake
-cmake_minimum_required(VERSION 3.30)
+cmake_minimum_required(VERSION 4.1)
 
 set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
 
-set(CMAKE_EXPERIMENTAL_CXX_IMPORT_STD "0e5b6991-d74f-4b3d-a41c-cf096e0b2508")
+set(CMAKE_EXPERIMENTAL_CXX_IMPORT_STD "d0edc3af-4c50-42ea-a356-e2862fe7a444")
 set(CMAKE_CXX_MODULE_STD 1)
 
 project(hello CXX)
