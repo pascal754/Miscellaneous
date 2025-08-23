@@ -242,7 +242,7 @@ cmake --build Debug
 └── main.cc
 ```
 
-## CMakeLists.txt for modules example 3: `imiport std;`
+## CMakeLists.txt for modules example 3: `import std;` and `import glm;`
 
 - Experimental
 - clang++ v20.1.8
@@ -299,7 +299,7 @@ target_sources(hello
 target_link_libraries(hello PRIVATE glm::glm)
 ```
 
-## CMakeLists.txt for modules example 4: `imiport std;` and `import fmt;`
+## CMakeLists.txt for modules example 4: `import std;` and `import fmt;`
 
 - clang v20.1.8
 - cmake v4.1.0
@@ -348,58 +348,6 @@ int main()
 ├── CMakeLists.txt
 ├── fmt
 └── main.cc
-
-```
-
-## CMakeLists.txt for modules example 5: `imiport std;`, `import fmt;`, and vcpkg
-
-- clang v20.1.8
-- cmake v4.1.0
-- fmt v11.2.0
-- `export LD_LIBRARY_PATH=/path/to/LLVM/lib/x86_64-unknown-linux-gnu`
-- `cmake -GNinja -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_CXX_FLAGS="-stdlib=libc++" -DCMAKE_BUILD_TYPE=Debug -B Debug`
-- `cmake --build Debug`
-
-### CMakeLists.txt
-
-```cmake
-cmake_minimum_required(VERSION 4.1)
-
-set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
-
-set(CMAKE_EXPERIMENTAL_CXX_IMPORT_STD "d0edc3af-4c50-42ea-a356-e2862fe7a444")
-set(CMAKE_CXX_MODULE_STD 1)
-
-project(hello CXX)
-
-# Set the version of C++ for the project
-set(CMAKE_CXX_STANDARD 23)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
-
-find_package(fmt CONFIG REQUIRED)
-
-add_compile_definitions(FMT_MODULE=ON)
-
-add_executable(hello)
-target_sources(hello
- PUBLIC
-  main.cc
- PUBLIC FILE_SET CXX_MODULES FILES
-  fmt.cc
-)
-# Link to the library
-target_link_libraries(hello PRIVATE fmt::fmt)
-```
-### tree
-
-```
-.
-├── CMakeLists.txt
-├── fmt.cc
-├── format.cc
-├── main.cc
-└── os.cc
 
 ```
 
