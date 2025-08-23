@@ -244,7 +244,9 @@ cmake --build Debug
 
 ## CMakeLists.txt for modules example 3: `imiport std;`
 
-- clang++ v19.1.5
+- Experimental
+- clang++ v20.1.8
+- cmake v4.1.0
 - `export LD_LIBRARY_PATH=/path/to/LLVM/lib/x86_64-unknown-linux-gnu`
 - `cmake -GNinja -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_CXX_FLAGS="-stdlib=libc++" -DCMAKE_BUILD_TYPE=Debug -B Debug`
 - `cmake --build Debug`
@@ -264,7 +266,10 @@ set(CMAKE_EXPERIMENTAL_CXX_IMPORT_STD
  # `Help/dev/experimental.rst` in the CMake source corresponding to
  # your CMake build for the exact value to use.
  # v3.30.5 has the same value.
- "0e5b6991-d74f-4b3d-a41c-cf096e0b2508")
+ # "0e5b6991-d74f-4b3d-a41c-cf096e0b2508"
+ #
+ # v4.1.0
+ "d0edc3af-4c50-42ea-a356-e2862fe7a444")
 
 set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
 
