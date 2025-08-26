@@ -208,15 +208,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED 20)
 
 find_package(glm CONFIG REQUIRED)
 
-add_executable(hello)
-target_sources(hello
+add_executable(${PROJECT_NAME})
+target_sources(${PROJECT_NAME}
   PUBLIC
     main.cc
   PUBLIC FILE_SET CXX_MODULES FILES
     glm.cppm
 )
 # Link to the library
-target_link_libraries(hello PRIVATE glm::glm)
+target_link_libraries(${PROJECT_NAME} PRIVATE glm::glm)
 ```
 ### main.cc
 ```cpp
